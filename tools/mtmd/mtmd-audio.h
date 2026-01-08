@@ -2,6 +2,7 @@
 
 #include "ggml.h"
 #include "clip-model.h"
+#include "mtmd.h"
 
 #include <cstdint>
 #include <vector>
@@ -80,7 +81,7 @@ struct mtmd_audio_preprocessor_conformer : mtmd_audio_preprocessor {
 //
 // streaming ISTFT - converts spectrogram frames back to audio one frame at a time
 //
-struct mtmd_audio_streaming_istft {
+struct MTMD_API mtmd_audio_streaming_istft {
     mtmd_audio_streaming_istft(int n_fft, int hop_length);
 
     // reset streaming state

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "common.h"
+#include "liquid.h"
 
 #include <functional>
 #include <string>
@@ -12,7 +13,7 @@ using generated_audio_t = std::vector<float>;
 using text_callback_t   = std::function<void(const std::string &)>;
 using audio_callback_t  = std::function<void(const std::vector<float> &)>;
 
-class Runner {
+class LIQUID_AUDIO_API Runner {
   public:
     // handling depends on system prompt
     static constexpr const char *                asr_system_prompt         = "Perform ASR.";

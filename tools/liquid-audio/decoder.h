@@ -1,9 +1,12 @@
 #pragma once
 
+#include "liquid.h"
+
 #include <array>
 #include <cstdint>
 #include <memory>
 #include <vector>
+
 
 // forward declaration
 struct common_params;
@@ -14,7 +17,7 @@ namespace audio {
 
 using audio_token_t = std::array<int32_t, 8>;
 
-struct Decoder {
+struct LIQUID_AUDIO_API Decoder {
     explicit Decoder(const common_params & params);
     ~Decoder();
 

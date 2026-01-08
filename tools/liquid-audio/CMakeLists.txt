@@ -5,6 +5,12 @@ target_include_directories(${TARGET_LIB} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(${TARGET_LIB} PUBLIC llama common mtmd ${CMAKE_THREAD_LIBS_INIT})
 target_compile_features(${TARGET_LIB} PRIVATE cxx_std_17)
 
+if (BUILD_SHARED_LIBS)
+    set_target_properties     (${TARGET_LIB} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+    target_compile_definitions(${TARGET_LIB} PRIVATE LLAMA_BUILD)
+    target_compile_definitions(${TARGET_LIB} PUBLIC  LLAMA_SHARED)
+endif()
+
 # cli
 set(TARGET_CLI llama-liquid-audio-cli)
 add_executable(${TARGET_CLI} cli.cpp)
